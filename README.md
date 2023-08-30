@@ -1,4 +1,4 @@
-# javascript-web-scrapper
+# javascript-web-scraper
 
 ## Disclaimer (For educational purposes only)
 
