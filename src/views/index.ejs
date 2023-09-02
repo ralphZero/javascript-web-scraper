@@ -5,8 +5,18 @@
   <%- include('./partials/head'); %>
 </head>
 
-<body>
-  This is it
+<body class="vh-100 d-flex flex-column">
+  <nav class="navbar bg-primary" data-bs-theme="dark">
+    <%- include('./partials/nav'); %>
+  </nav>
+  <div class="container-fluid d-flex flex-grow-1 w-100">
+    <div class="row flex-grow-1">
+      <div class="col p-0">Schema</div>
+      <div class="col p-0">
+        <%- include('./partials/result'); %>
+      </div>
+    </div>
+  </div>
   <%- include('./partials/footer'); %>
 </body>
 
