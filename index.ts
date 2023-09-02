@@ -1,37 +1,15 @@
-import puppeteer from 'puppeteer';
+import express from 'express';
 
-const getBooks = async () => {
-  const browser = await puppeteer.launch({
-    headless: 'new', // set to 'new' for hidden browser, new Headless
-    defaultViewport: null,
-  });
+const PORT = 8080;
 
-  const page = await browser.newPage();
+const app = express();
 
-  await page.goto('https://books.toscrape.com/', {
-    waitUntil: 'domcontentloaded',
-  });
+app.use(express.json());
 
-  // Get page data
-  const books = await page.evaluate(() => {
-    const bookList: NodeListOf<HTMLElement> =
-      document.querySelectorAll('.product_pod');
-    let result: any[] = [];
-    bookList.forEach((book, index) => {
-      const id = index;
-      const title = (book.querySelector('h3 > a') as HTMLElement)?.title;
-      const price = (book.querySelector('.product_price > p') as HTMLElement)
-        ?.innerText;
-      result.push({ id, title, price });
-    });
-    return result;
-  });
+app.get('/', (req, res) => {
+  res.send('Hello world');
+});
 
-  // Display the books
-  console.log(books);
-
-  // Close the browser
-  await browser.close();
-};
-
-getBooks();
+app.listen(PORT, () => {
+  console.log(`Server is running on ${PORT}`);
+});
