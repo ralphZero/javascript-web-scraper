@@ -1,0 +1,50 @@
+<form id="fields" class="row py-4" action="/" method="post">
+  <div class="row">
+    <% data.forEach(function(item) { %>
+      <!-- Key -->
+      <div class="col-auto">
+        <label for="staticEmail2" class="visually-hidden">
+          <%= item.key %>
+        </label>
+        <input type="text" class="form-control-plaintext" name="key1" value="<%= item.key %>" placeholder="Key">
+      </div>
+      <!-- Value -->
+      <div class="col-auto">
+        <label for="inputPassword" class="visually-hidden">
+          <%= item.value %>
+        </label>
+        <input type="text" class="form-control" name="key2" value="<%= item.value %>" placeholder="Value">
+      </div>
+      <!-- Add more button -->
+      <div class="col-auto">
+        <input type="submit" class="btn" name="add_new" value="Add" />
+      </div>
+      <% }) %>
+  </div>
+</form>
+
+<script type="text/javascript">
+  function handleSubmit(e) {
+    return 'test'
+  }
+</script>
+
+<!-- <script type="text/javascript">
+  const cachedData = sessionStorage.getItem('data');
+  if (!cachedData) {
+    const data = '<%- JSON.stringify(data) %>';
+    sessionStorage.setItem('data', data);
+  }
+
+  const fields = document.querySelector('#fields');
+  // fields.insertAdjacentHTML('beforeend',)
+
+</script>
+
+<script type="text/javascript">
+  const addMore = document.querySelector('button[name=add_new]');
+  addMore.addEventListener('click', () => {
+    const cachedData = sessionStorage.getItem('data');
+
+  }, false)
+</script> -->

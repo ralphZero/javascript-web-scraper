@@ -11,7 +11,9 @@
   </nav>
   <div class="container-fluid d-flex flex-grow-1 w-100">
     <div class="row flex-grow-1">
-      <div class="col p-0">Schema</div>
+      <div class="col">
+        <%- include('./partials/schemaForm', { data: data }) %>
+      </div>
       <div class="col p-0">
         <%- include('./partials/result'); %>
       </div>

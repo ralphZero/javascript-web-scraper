@@ -8,7 +8,16 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-  res.render('index');
+  const data = [{ key: 'id', value: Date.now().toString() }];
+  res.render('index', { data });
+});
+
+app.post('/', (req, res) => {
+  const reqBody = req.body;
+  console.log(reqBody);
+
+  const data = [{ key: 'id', value: Date.now().toString() }];
+  res.render('index', { data });
 });
 
 app.listen(PORT, () => {
